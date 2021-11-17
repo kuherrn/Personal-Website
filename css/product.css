@@ -1,0 +1,506 @@
+/* Set the font-size on the html to enable dynamic font-sizing using 'rem' units */
+html {
+  font-size: 1vw;
+}
+
+/* Body is split into 3 sections */
+/* The header that houses a link to the Home page, link to the About page, and a link to the Contact page */
+/* The main section that houses information about the product (Concorde), an image gallery and specifications */
+/* The footer that houses a hyperlink (psuedoeaster-egg for the purchase of the product) */
+body {
+  margin: 0;
+  height: 142vw;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-rows: 4vw 1fr 0.05fr;
+  grid-template-columns: auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Styling for the header */
+/* The header houses a link to the Home page, link to the About page, and a link to the Contact page */
+header {
+  grid-row: 1 / 2;
+  width: 1900px;
+  height: 80%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+header > nav > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+header > nav > div:nth-child(2) {
+  text-align: center;
+  font-family: "Lobster", cursive;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 24%;
+}
+
+/* On hover, the a bottom border will expand from the center to the width of the container */
+/* Referance: https://stackoverflow.com/questions/26726436/css-bottom-border-transition-expand-from-middle */
+header > nav > div:nth-child(2) > a::after {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 0.3rem;
+  width: 0px;
+  background: transparent;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+header > nav > div:nth-child(2) > a:hover::after {
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+}
+
+header > nav > div:nth-child(2) > a,
+h1 > span > a,
+aside > p > span > a {
+  text-decoration: none;
+  color: black;
+}
+
+.corporateLogo img {
+  width: 100px;
+  height: 20px;
+  transition: all 300ms ease-in;
+}
+
+.corporateLogo img:hover {
+  width: 120px;
+  height: 30px;
+}
+
+/* Font Sizes and weights*/
+h1 {
+  margin-top: 0;
+  font-size: 1.62rem;
+}
+
+h1 > span  {
+  border-bottom: 0.5px solid transparent;
+}
+
+h1 > span:hover {
+  cursor: pointer;
+  border-bottom: 0.5px solid black;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+h3 {
+  font-size: 1.01rem;
+}
+
+p, li {
+  font-weight: 300;
+  font-size: 0.81rem;
+  line-height: 1.3rem;
+}
+/* End of font sizes and weights */
+
+/* Styling for the main */
+/* Main houses information about the product (Concorde), an image gallery and specifications */
+main {
+  grid-row: 2 / 3;
+  width: 1900px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+/* Styling for the automatic comments slideshow */
+/* Referance: https://css-tricks.com/snippets/jquery/simple-auto-playing-slideshow/ */
+.comments {
+  display: flex;
+  flex-direction: column;
+  border-top: 2px solid black;
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.comments h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  margin-top: 0;
+}
+
+#slideshow div p {
+  font-family: "Cinzel", serif;
+  font-size: 1rem;
+}
+
+#slideshow span {
+  font-family: "Courgette", cursive;
+}
+
+#slideshow {
+  margin: auto;
+  position: relative;
+  width: 100%;
+  height: 8vw;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+#slideshow > div {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 10px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+/* End of styling for the automatic comments slideshow */
+
+.imageGallery, .specifications {
+  margin-top: 2rem;
+  border-top: 2px solid black;
+  border-radius: 10px;
+}
+
+/* Styling for the picture slideshow */
+/* Referance: https://www.w3schools.com/howto/howto_js_slideshow.asp */
+.slideshowContainer {
+  max-width: 1020px;
+  position: relative;
+  margin: auto;
+}
+
+.mySlides {
+  display: none;
+}
+
+#prev, #next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+#next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+#prev:hover,
+#next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Caption text */
+.imageGallery .figcaption {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 0;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+  background-color: black;
+}
+
+.imageGallery figure {
+  margin: 0;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* End of styling for the picture slideshow */
+
+/* Styling for the specifications card */
+.specifications {
+  display: flex;
+  flex-direction: column;
+}
+
+.specifications h3,
+.specifications h2,
+.imageGallery h2 {
+  text-align: center;
+}
+
+.specifications h3 {
+  margin: 0;
+  padding: 0.3rem;
+}
+
+.specifications > div:last-child {
+  display: flex;
+}
+
+/* On hover, the card will add a background color AND expand to reveal pertinent information */
+.cardWrapper {
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 1000ms ease-in-out;
+  max-height: 2vw;
+  overflow: hidden;
+  flex: 1 1 0;
+}
+
+.cardWrapper:hover {
+  max-height: 42vw;
+  background-color: rgba(87, 60, 60, 0.1);
+}
+/* End of styling for the specifications card */
+
+/* Styling for the footer */
+/* Footer houses a hyperlink (psuedoeaster-egg for the purchase of the product) */
+footer {
+  text-align: center;
+  grid-row: 3 / 4;
+}
+
+/* Breakpoints were added to ensure the content would work on most screen sizes including 4k displays and down and images and the container slideshow did not overflow */
+
+/* First media screen breakpoint */
+@media screen and (max-width: 2000px) {
+  html {
+    font-size: 1.2vw;
+  }
+
+  body {
+    height: 180vw;
+  }
+
+  main, footer, header {
+    width: 1500px;
+  }
+
+  #slideshow {
+    height: 10vw;
+  }
+}
+
+/* Second media screen breakpoint */
+@media screen and (max-width: 1600px) {
+  body {
+    height: 219vw;
+  }
+
+  main, footer, header {
+    width: 1100px;
+  }
+
+  header > nav > div:nth-child(2) {
+    font-size: 23px;
+    width: 36%;
+  }
+
+  #slideshow div p {
+    font-size: 0.8rem;
+  }
+
+  p, li {
+    line-height: 1.5rem;
+  }
+}
+
+/* Third media screen breakpoint */
+@media screen and (max-width: 1200px) {
+  body {
+    grid-template-rows: 6vh 0.1fr 0.1fr;
+    height: auto;
+  }
+
+  main, footer, header {
+    width: 600px;
+  }
+
+  header > nav > div:nth-child(2) {
+    font-size: 18px;
+  }
+
+  #slideshow div p {
+    font-size: 16px;
+  }
+
+  h1, h2 {
+    font-size: 18px;
+  }
+
+  h3, p, li {
+    font-size: 16px;
+    line-height: 28px;
+  }
+
+  #slideshow {
+    height: 18vw;
+  }
+
+  .slideshowContainer img {
+    width: 600px;
+    height: 400px;
+  }
+
+  .specifications > div:last-child {
+    flex-direction: column;
+  }
+
+  .cardWrapper {
+    flex: 1 1;
+    max-height: 3vw;
+  }
+
+  .cardWrapper:hover {
+    max-height: 92vw;
+  }
+}
+
+/* Fourth media screen breakpoint */
+@media screen and (max-width: 700px) {
+  body {
+    grid-template-rows: 12vw 0.1fr 0.1fr;
+  }
+
+  main, footer, header {
+    width: 400px;
+    padding: 2px;
+  }
+
+  header > nav > div:nth-child(2) {
+    font-size: 2.3rem;
+    width: 46%;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.7rem;
+  }
+
+  h2, h3 {
+    font-size: 2.5rem;
+  }
+
+  p, li {
+    font-size: 2.1rem;
+  }
+
+  h2, h3, p, li {
+    line-height: 24px;
+  }
+
+  #slideshow {
+    height: 43vw;
+  }
+
+  #slideshow div p {
+    font-size: 14px;
+  }
+
+  .slideshowContainer img {
+    width: 400px;
+    height: 267px;
+  }
+
+  .imageGallery .figcaption {
+    font-size: 10px;
+    bottom: 3px;
+  }
+
+  .cardWrapper {
+    max-height: 5vw;
+  }
+
+  .cardWrapper:hover {
+    max-height: 900px;
+  }
+}
+
+/* Fifth(last) media screen breakpoint */
+@media screen and (max-width: 500px) {
+  body {
+    grid-template-rows: 14vw 0.1fr 0.1fr;
+  }
+
+  .corporateLogo img {
+    width: 80px;
+    height: 16px;
+  }
+
+  main, footer, header {
+    width: 300px;
+    padding: 2px;
+  }
+
+  header > nav > div:nth-child(2) {
+    width: 53%;
+  }
+
+  h2, h3, p, li {
+    line-height: 17px;
+  }
+
+  #slideshow {
+    height: 54vw;
+  }
+
+  .slideshowContainer img {
+    width: 300px;
+    height: 200px;
+  }
+
+  .imageGallery .figcaption {
+    font-size: 10px;
+    bottom: 3px;
+  }
+
+  .cardWrapper:hover {
+    max-height: 900px;
+  }
+}

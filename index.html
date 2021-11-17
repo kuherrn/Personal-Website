@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="decription" content="Airbus Home Page. The main entry point to the microsite with possible navigation links to the 3 other webpages" />
+    <meta name="robots" content="noindex, nofollow" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lobster&family=Montserrat:wght@300;500&family=Poppins:wght@200&display=swap"
+      rel="stylesheet"
+    />
+    <title>Airbus - Home</title>
+  </head>
+
+  <body >
+    <header>
+      <nav>
+        <div class="corporateLogo">
+          <img src="./img/corporate-logo.png" alt="Airbus Logo" />
+        </div>
+        <div>
+          <!-- Link to Contact page -->
+          <a href="./contact.html">Contact Form</a>
+        </div>
+      </nav>
+
+      <!-- Container for slide show that will play automatically on page load -->
+      <div class="slideShowContainer">
+        <div class="mySlides fade">
+          <img src="./img/index-Image1.jpg" class="img" alt="Concorde Image One"/>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./img/index-Image2.jpg" class="img" alt="Concorde Image Two"/>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./img/index-Image3.jpg" class="img" alt="Concorde Image Three"/>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./img/index-Image4.jpg" class="img" alt="Concorde Image Four"/>
+        </div>
+
+        <div class="mySlides fade">
+          <img src="./img/index-Image5.jpg" class="img" alt="Concorde Image Five"/>
+        </div>
+      </div>
+
+      <!-- Link to Product page -->
+      <div class="heading">
+        <h1>
+          Making it fly since
+          <a href="./product.html">1969</a>
+        </h1>
+      </div>
+    </header>
+
+    <!-- Main section with a short introduction to the company that built the product -->
+    <!-- Will reveal more information on mouse hover -->
+    <main>
+      <section>
+        <div class="aboutWrapper">
+          <div class="aboutTitle">
+            <h2>Airbus at a glance</h2>
+            <p>
+              Concorde, which translates to "harmony" or "union" in French was
+              built by two aviation giants - Aerospatiale (which later became
+              Airbus) and the UK's British Aircraft Corporation (BAC)
+            </p>
+          </div>
+
+          <div class="aboutDetails">
+            <h2>The Origin Story</h2>
+            <p>
+              At a meeting in July 1967, ministers from France, Germany and
+              Britain agreed “for the purpose of strengthening European
+              co-operation in the field of aviation technology and thereby
+              promoting economic and technological progress in Europe, to take
+              appropriate measures for the joint development and production of
+              an airbus.”
+            </p>
+
+            <p>
+              <!-- Link to About page -->
+              <a
+                href="./about.html"
+                >Read more</a
+              >
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer contains two videos, the former an iframe, the latter a youtube hyperlink  -->
+    <footer>
+      <div>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/U09DEIWnNvA"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; gyroscope;"
+          allowfullscreen
+        ></iframe>
+      </div>
+
+      <div>
+        <video
+          src="./img/index-Video.mp4"
+          type="video/mp4"
+          width="560"
+          height="315"
+          controls
+        >
+          Your browser does not support this video
+        </video>
+      </div>
+    </footer>
+
+    <script src="./js/index.js"></script>
+  </body>
+</html>

@@ -1,0 +1,671 @@
+/* Set the font-size on the html to enable dynamic font-sizing using 'rem' units */
+html {
+  font-size: 1vw;
+}
+
+/* Body is split into 3 sections */
+/* The header that houses a link to the Home page, link to the Product page, and a link to the About page */
+/* The main section that houses 3 separate section with contact information */
+/* The footer that houses the form */
+body {
+  margin: 0;
+  height: 100%;
+  display: grid;
+  justify-content: center;
+  justify-items: center;
+  grid-template-rows: 4vw 0.1fr 0.1fr;
+  grid-template-columns: auto;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* Styling for the header */
+/* The header houses a link to the Home page, link to the Product page, and a link to the About page */
+header {
+  grid-row: 1 / 2;
+  width: 1900px;
+  height: 80%;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  height: 100%;
+}
+
+header > nav > div:nth-child(1) {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+}
+
+header > nav > div:nth-child(2) {
+  text-align: center;
+  font-family: "Lobster", cursive;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 24%;
+}
+
+/* On hover, the a bottom border will expand from the center to the width of the container */
+/* Referance: https://stackoverflow.com/questions/26726436/css-bottom-border-transition-expand-from-middle */
+header > nav > div:nth-child(2) > a::after {
+  content: "";
+  display: block;
+  margin: auto;
+  height: 0.3rem;
+  width: 0px;
+  background: transparent;
+  transition: width 0.5s ease, background-color 0.5s ease;
+}
+
+header > nav > div:nth-child(2) > a:hover::after {
+  width: 100%;
+  background-color: rgb(20, 20, 20);
+}
+
+header > nav > div:nth-child(2) > a {
+  text-decoration: none;
+  color: black;
+}
+
+.corporateLogo img {
+  width: 100px;
+  height: 20px;
+  transition: all 300ms ease-in;
+}
+
+.corporateLogo img:hover {
+  width: 120px;
+  height: 30px;
+}
+
+/* Font sizes and weights */
+h1 {
+  margin-top: 0;
+  font-size: 1.62rem;
+  display: inline-block;
+  border-bottom: 2px solid black;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-bottom: 0;
+}
+
+p, li, optgroup {
+  font-weight: 300;
+  font-size: 0.81rem;
+  line-height: 1.3rem;
+}
+/* End of font sizes and weights */
+
+/* Styling for the main */
+/* Main houses 3 separate section with contact information */
+main {
+  grid-row: 2 / 3;
+  width: 1900px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for a card that will toggle show/hide when clicked */
+/* Referances: https://stackoverflow.com/questions/58460514/toggle-div-with-css-animation-and-javascript */
+#globalContacts > div:first-child > h2, #commercialAircraft > div:first-child > h2 {
+  cursor: pointer;
+}
+
+#globalContacts, #commercialAircraft {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 300ms ease-in;
+  border-radius: 10px;
+  padding-bottom: 1.4rem;
+}
+
+#departmentalContacts {
+  border-top: 2px solid transparent;
+  border-bottom: 2px solid transparent;
+  transition: all 300ms ease-in;
+  border-radius: 10px;
+}
+
+/* On hover, show a border bottom for the Global Contacts and Departmental Contacts section */
+#globalContacts:hover, #commercialAircraft:hover, #departmentalContacts:hover {
+  border-bottom: 2px solid black;
+}
+
+.wrapper {
+  overflow: hidden;
+}
+
+#card1, #card2, #card3 {
+  max-height: 3000px;
+  transition: all 1s cubic-bezier(.02,.99,.67,.97);
+}
+
+.hide {
+  max-height: 0 !important;
+  font-size: 0;
+}
+
+#globalContacts > div:last-child > div {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+  margin-left: 2rem;
+}
+
+#commercialAircraft > div:last-child > div {
+  margin-left: 2rem;
+}
+
+#commercialAircraft > div:last-child > div > div:nth-child(1) > div:last-child, 
+#commercialAircraft > div:last-child > div > div:nth-child(2) > div:last-child, 
+#commercialAircraft > div:last-child > div > div:nth-child(3) > div:last-child,
+#commercialAircraft > div:last-child > div > div:nth-child(4) > div:last-child {
+  display: flex;
+  justify-content: space-between;
+  width: 75%;
+}
+
+#commercialAircraft h3 {
+  margin-bottom: 2px;
+}
+
+/* Styling for a card that will expand when hovered over */
+#departmentalContacts > div:last-child {
+  display: flex;
+  width: 80%;
+  justify-content: space-between;
+}
+
+.leftHalf,
+.rightHalf {
+  flex: 1 1 0;
+}
+
+.leftHalf p, .rightHalf p {
+  white-space: pre-line;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.leftHalf span, .rightHalf span {
+  font-weight: 500;
+}
+
+.cardWrapper {
+  max-height: 2vw;
+  overflow: hidden;
+  transition: all 1000ms ease-in-out;
+  padding: 0 2rem 2rem 2rem;
+  border-radius: 6px;
+}
+
+/* On hover, the card will add a background color, box shadow AND expand to reveal more information */
+.cardWrapper:hover {
+  max-height: 3000px;
+  background-color: rgba(87, 60, 60, 0.1);
+  box-shadow: 0 0 8px #d3d3d3;
+}
+
+.nameCardWrapper {
+  margin-bottom: 0;
+  font-weight: 500;
+}
+
+.titleCardWrapper {
+  margin: 0;
+  font-style: italic;
+}
+
+.detailsCardWrapper {
+  margin-top: 4px;
+}
+
+/* Remove the default styling for the ul */
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  white-space: pre;
+}
+
+/* Styling for footer */
+/* Footer houses the form */
+footer {
+  box-sizing: border-box;
+  width: 1900px;
+  background-color: rgba(189, 226, 255, 0.5);
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+#form {
+  display: flex;
+  flex-direction: column;
+}
+
+#form > div:first-child > p {
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+/* Have the clickable text to toggle the form have a border-bottom */
+#form > div:first-child > p > span {
+  border-bottom: 0.5px solid black;
+}
+
+#form > div:first-child > p > span:hover {
+  cursor: pointer;
+}
+
+#form label {
+  display: block;
+  margin-bottom: 0.2rem;
+  font-size: 0.81rem;
+}
+
+/* Select, Input and Textareas should take up the full width of its container */
+#form select, #form input, #form textarea {
+  width: 100%;
+}
+
+/* The label for the Checkbox should be an inline-block element */
+#form > div:last-child > div > form > div:nth-child(12) > label {
+  display: inline-block;
+}
+
+#form > div:last-child > div > form > div:nth-child(12) > input {
+  width: auto;
+  margin-left: 2rem;
+}
+
+/* Grid layout for the various form inputs */
+#form > div:last-child > div > form {
+  display: grid;
+  grid-template-areas: 
+  "iAm iAm . ."
+  "firstName firstName lastName lastName"
+  "company company tel tel"
+  "address address . ."
+  "postcode city city city"
+  "country country . ."
+  "email email . ."
+  "message message message message"
+  "privacy privacy . ."
+  "button . . .";
+  grid-template-rows: auto;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+}
+
+form > div:first-child {
+  grid-area: iAm;
+}
+
+form > div:nth-child(2) {
+  grid-area: firstName;
+}
+
+form > div:nth-child(3) {
+  grid-area: lastName;
+}
+
+form > div:nth-child(4) {
+  grid-area: company;
+}
+
+form > div:nth-child(5) {
+  grid-area: tel;
+}
+
+form > div:nth-child(6) {
+  grid-area: address;
+}
+
+form > div:nth-child(7) {
+  grid-area: postcode;
+}
+
+form > div:nth-child(8) {
+  grid-area: city;
+}
+
+form > div:nth-child(9) {
+  grid-area: country;
+}
+
+form > div:nth-child(10) {
+  grid-area: email;
+}
+
+form > div:nth-child(11) {
+  grid-area: message;
+}
+
+form > div:nth-child(12) {
+  grid-area: privacy;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+form > div:nth-child(13) {
+  grid-area: button;
+}
+
+button {
+  padding: 10px 30px;
+  font-size: 0.71rem;
+}
+
+/* Styling for the various inputs of the form */
+input[type=text], input[type=tel], input[type=email], textarea, select {
+  width: 100%;
+  padding: 0.47rem 0.78rem;
+  margin: 0.31rem 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* Custom checkbox styling */
+/* Referance: https://www.html5canvastutorials.com/blog/2012/06/custom-form-radio-checkbox/ */
+input[type=checkbox] {
+  -webkit-appearance: none;
+	background-color: #fafafa;
+	border: 1px solid #cacece;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05);
+	padding: 9px;
+	border-radius: 3px;
+	display: inline-block;
+	position: relative;
+}
+
+/* Styling when the checkbox is checked and active */
+input[type=checkbox]:checked:active {
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Styling when the checkbox is checked */
+input[type=checkbox]:checked {
+  background-color: #e9ecee;
+	border: 1px solid #adb8c0;
+	box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05), inset 15px 10px -12px rgba(255,255,255,0.1);
+	color: #99a1a7;
+}
+
+/* Styling after the checkbox is checked */
+input[type=checkbox]:checked::after {
+  content: '\2714';
+	font-size: 14px;
+	position: absolute;
+	top: 0px;
+	left: 3px;
+	color: #99a1a7;
+}
+
+/* Breakpoints were added to ensure the content would work on most screen sizes including 4k displays and down */
+
+/* First media screen breakpoint */
+@media screen and (max-width: 2000px) {
+  html {
+    font-size: 1.2vw;
+  }
+
+  main, footer, header {
+    width: 1500px;
+  }
+}
+
+/* Second media screen breakpoint */
+@media screen and (max-width: 1600px) {
+  body {
+    grid-template-rows: 5.5vw 0.1fr 0.1fr;
+  }
+
+  main, footer, header {
+    width: 1100px;
+  }
+
+  header > nav > div:nth-child(2) {
+    font-size: 23px;
+    width: 36%;
+  }
+
+  p,
+  li {
+    line-height: 1.5rem;
+  }
+}
+
+/* Third media screen breakpoint */
+@media screen and (max-width: 1200px) {
+  body {
+    grid-template-rows: 6vh 0.1fr 0.1fr;
+    height: auto;
+  }
+
+  main, footer, header {
+    width: 600px;
+  }
+
+  header > nav > div:nth-child(2) {
+    font-size: 18px;
+  }
+
+  h1, h2 {
+    font-size: 18px;
+    text-align: center;
+  }
+
+  h3 {
+    font-size: 16px;
+  }
+
+  p, li {
+    font-size: 14px;
+    line-height: 28px;
+  }
+
+  #form > div:first-child > p {
+    font-size: 14px;
+  }
+
+  #form label, button {
+    font-size: 12px;
+  }
+
+  optgroup {
+    font-size: 0.9rem;
+  }
+
+  #globalContacts > div:last-child > div {
+    width: 100%;
+    column-gap: 3.5rem;
+  }
+
+  #commercialAircraft h3 {
+    margin: 0;
+  }
+
+  #commercialAircraft > div:last-child > div > div:nth-child(1) > div:last-child, #commercialAircraft > div:last-child > div > div:nth-child(2) > div:last-child, #commercialAircraft > div:last-child > div > div:nth-child(3) > div:last-child, #commercialAircraft > div:last-child > div > div:nth-child(4) > div:last-child {
+    width: 100%;
+    column-gap: 3.5rem;
+  }
+
+  .leftHalf span, .rightHalf span {
+    font-size: 15px;
+  }
+
+  #departmentalContacts > div:last-child {
+    width: 100%;
+    justify-content: space-evenly;
+  }
+
+  #departmentalContacts h3 {
+    text-align: center;
+  }
+
+  .cardWrapper {
+    max-height: 2.6vw;
+  }
+
+  #form > div:last-child > div > form {
+    grid-template-areas: 
+    "iAm iAm . ."
+    "firstName firstName lastName lastName"
+    "company company tel tel"
+    "address address . ."
+    "postcode city city city"
+    "country country . ."
+    "email email . ."
+    "message message message message"
+    "privacy privacy privacy privacy"
+    "button . . .";
+  }
+}
+
+/* Fourth media screen breakpoint */
+@media screen and (max-width: 700px) {
+  body {
+    grid-template-rows: 12vw 0.1fr 0.1fr;
+  }
+
+  main, footer, header {
+    width: 400px;
+    padding: 10px;
+  }
+
+  /* New Addition */
+  .corporateLogo img:hover {
+    width: 90px;
+    height: 18px;
+  }
+
+  header > nav > div:nth-child(2) {
+    font-size: 2.3rem;
+    width: 46%;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2.7rem;
+  }
+
+  h3 {
+    font-size: 2.5rem;
+  }
+
+  p, li {
+    font-size: 2.1rem;
+  }
+
+  optgroup {
+    font-size: 1.8rem;
+  }
+
+  #form > div:first-child > p {
+    font-size: 2.1rem;
+  }
+
+  h2, h3, p, li {
+    line-height: 24px;
+  }
+
+  #globalContacts > div:last-child > div,
+  #commercialAircraft > div:last-child > div > div:nth-child(1) > div:last-child, #commercialAircraft > div:last-child > div > div:nth-child(2) > div:last-child, #commercialAircraft > div:last-child > div > div:nth-child(3) > div:last-child, #commercialAircraft > div:last-child > div > div:nth-child(4) > div:last-child {
+    flex-direction: column;
+  }
+
+  #commercialAircraft h3 {
+    text-align: center;
+  }
+
+  #departmentalContacts > div:last-child {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .cardWrapper {
+    max-height: 4vw;
+  }
+
+  #form > div:first-child > p > span {
+    border-bottom: 0.2px solid black;
+  }
+
+  #form > div:last-child > div > form {
+    grid-template-areas: 
+    "iAm iAm"
+    "firstName firstName"
+    "lastName lastName"
+    "company company"
+    "tel tel"
+    "address address"
+    "postcode ."
+    "city city"
+    "country country"
+    "email email"
+    "message message"
+    "message message"
+    "privacy privacy"
+    "button button";
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.2rem;
+  }
+
+  form > div:nth-child(13) {
+    display: flex;
+    justify-content: center;
+  }
+
+}
+
+/* Fifth(last) media screen breakpoint */
+@media screen and (max-width: 500px) {
+  body {
+    grid-template-rows: 14vw 0.1fr 0.1fr;
+  }
+
+  .corporateLogo img {
+    width: 80px;
+    height: 16px;
+  }
+
+  main, footer, header {
+    width: 300px;
+  }
+
+  main, header {
+    padding: 2px;
+  }
+
+  footer {
+    padding: 9px;
+  }
+
+  header > nav > div:nth-child(2) {
+    width: 53%;
+  }
+
+  h2, h3, p, li {
+    line-height: 17px;
+  }
+
+  #form > div:first-child > p {
+    font-size: 1.8rem;
+  }
+
+  .cardWrapper {
+    max-height: 5vw;
+  }
+}
